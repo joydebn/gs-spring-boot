@@ -7,10 +7,6 @@ trigger:
 - master
 
 variables:
-
-  # Azure Resource Manager connection created during pipeline creation
- 
-  
   # Web app name
   webAppName: 'java-spring-boot'
 
@@ -66,7 +62,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: gs-spring-boot'
             inputs:
-              azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
